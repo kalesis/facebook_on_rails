@@ -10,6 +10,14 @@
 <body>
 <div class="container">
   <%= render "layouts/header" %>
+  
+  <% flash.each do |name, msg| %>
+    <div class="alert alert-dismissable text-center alert-<%= name==notice ? "sucess":"danger" %>">
+      <a class="close" data-dismiss="alert">X</a>
+      <%= msg %>
+    </div>
+  <% end %>
+
   <%= yield %>
 </div>
 
